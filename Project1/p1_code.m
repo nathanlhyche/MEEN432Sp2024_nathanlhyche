@@ -1,7 +1,7 @@
 w_0 = 1.0; %initialized values
 J1 = 1;
 b = 1;
-A = 4;
+A = 1;
 
 dT = [0.001, 0.1, 1]; %array of the time steps needed to be used
 solver = ["ode1", "ode4"]; %euler and runge katta identifers array
