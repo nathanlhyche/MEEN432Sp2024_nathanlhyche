@@ -1,0 +1,10 @@
+This is used to operate the Project 1 part 1 code
+
+  You need to open both the p1_code.m and p1_model.slx
+  Then run the p1_code.m 
+  This should result in 6 different figures appear
+    Each figure will have two subplots showing Omega v time and Omega dot v time.
+    Each figure will cover one type of solver and time step
+      eg. Euler and dT = 0.1 or Runge Katta and dT = 1 etc
+  Within the p1_code.m, you can change the b A w_0 and J1 values to simulate the system with different values.
+    This works as these variables are entered into the simulink model as teh variables so they will change whenever the p1_code.m is change and ran.
