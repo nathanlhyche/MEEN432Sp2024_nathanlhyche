@@ -44,7 +44,11 @@ for dt_index = 1:length(time_steps)
     if dt_index == 1
         theoretical_velocity = initial_angular_velocity + A_constant_torque / J1 * time_euler;
         max_error_euler = max(abs(angular_velocity_euler - theoretical_velocity));
+        error_euler = abs(angular_velocity_euler - theoretical_velocity);
+        error_rk4 = abs(angular_velocity_rk4 - theoretical_velocity);
         max_error_rk4 = max(abs(angular_velocity_rk4 - theoretical_velocity));
+        T_euler = linspace(0, 25, length(angular_velocity_euler));
+        T_rk4 = linspace(0, 25, length(angular_velocity_rk4));
     end
     
     % Display and save results
@@ -54,6 +58,18 @@ for dt_index = 1:length(time_steps)
     fprintf('CPU Time (Runge-Kutta 4th order): %.6f s\n', cpu_time_rk4);
     fprintf('Maximum Error (Runge-Kutta 4th order): %.6f rad/s\n', max_error_rk4);
     fprintf('\n');
+
+
+    %plots for graphing error vs time.  doesnt 
+    plot(T_euler, error_euler)
+    title('Euler Error vs. Time')
+    ylabel('Error [rad/s]')
+    xlabel('Time [s]')
+
+    plot(T_rk4, error_rk4)
+    title('rk4 Error vs. Time')
+    ylabel('Error [rad/s]')
+    xlabel('Time [s]')
 end
 
 % Simulation with variable time step methods (ode45)
