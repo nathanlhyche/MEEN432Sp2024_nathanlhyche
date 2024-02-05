@@ -67,7 +67,9 @@ data_ode45 = struct('Time', t_ode45, 'AngularVelocity', angular_velocity_ode45);
 
 % Calculate maximum error for step inputs (ode45)
 theoretical_velocity_ode45 = initial_angular_velocity + A_constant_torque / J1 * t_ode45;
-max_error_ode45 = max(abs(angular_velocity_ode45 - theoretical_velocity_ode45));
+abs_ode45 = abs(angular_velocity_ode45 - theoretical_velocity_ode45);
+[max_error_ode45, max_index_ode45] = max(abs_ode45);
+max_error_ode45 = max_error_ode45/1.0e+120;
 
 % Display and save results
 fprintf('Variable Time Step Simulation (ode45)\n');
