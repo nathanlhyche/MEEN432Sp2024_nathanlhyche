@@ -22,6 +22,14 @@ data_euler = cell(length(time_steps), 1);
 data_rk4 = cell(length(time_steps), 1);
 data_ode45 = [];
 
+cpu_times_rk4 = [];
+cpu_times_euler = [];
+cpu_times_ode45 = [];
+
+error_times_rk4 = [];
+error_times_euler = [];
+error_times_ode45 = [];
+
 % Simulation with fixed time step methods (Euler, Runge-Kutta 4th order)
 for dt_index = 1:length(time_steps)
     dt = time_steps(dt_index);
@@ -49,6 +57,8 @@ for dt_index = 1:length(time_steps)
         max_error_rk4 = max(abs(angular_velocity_rk4 - theoretical_velocity));
         T_euler = linspace(0, 25, length(angular_velocity_euler));
         T_rk4 = linspace(0, 25, length(angular_velocity_rk4));
+
+        
     end
     
     % Display and save results
@@ -58,19 +68,15 @@ for dt_index = 1:length(time_steps)
     fprintf('CPU Time (Runge-Kutta 4th order): %.6f s\n', cpu_time_rk4);
     fprintf('Maximum Error (Runge-Kutta 4th order): %.6f rad/s\n', max_error_rk4);
     fprintf('\n');
+    cpu_times_rk4 = [cpu_times_rk4, cpu_time_rk4];
+    cpu_times_euler = [cpu_times_euler, cpu_time_euler];
 
-
-    %plots for graphing error vs time.  doesnt 
-    plot(T_euler, error_euler)
-    title('Euler Error vs. Time')
-    ylabel('Error [rad/s]')
-    xlabel('Time [s]')
-
-    plot(T_rk4, error_rk4)
-    title('rk4 Error vs. Time')
-    ylabel('Error [rad/s]')
-    xlabel('Time [s]')
+    error_times_rk4 = [max_error_rk4, error_times_rk4];
+    error_times_euler = [max_error_euler, error_times_euler];
+   
 end
+
+
 
 % Simulation with variable time step methods (ode45)
 % ode45
@@ -83,14 +89,42 @@ data_ode45 = struct('Time', t_ode45, 'AngularVelocity', angular_velocity_ode45);
 
 % Calculate maximum error for step inputs (ode45)
 theoretical_velocity_ode45 = initial_angular_velocity + A_constant_torque / J1 * t_ode45;
-abs_ode45 = abs(angular_velocity_ode45 - theoretical_velocity_ode45);
+abs_ode45 = angular_velocity_ode45 - theoretical_velocity_ode45;
 [max_error_ode45, max_index_ode45] = max(abs_ode45);
 max_error_ode45 = max_error_ode45/1.0e+120;
+T_ode45 = linspace(0, 25, length(angular_velocity_ode45));
 
 % Display and save results
 fprintf('Variable Time Step Simulation (ode45)\n');
 fprintf('CPU Time (ode45): %.6f s\n', cpu_time_ode45);
 fprintf('Maximum Error (ode45): %.6f rad/s\n', max_error_ode45);
+
+cpu_times_ode45 = [cpu_times_ode45, cpu_time_ode45];
+error_times_ode45 = [error_times_ode45, max_error_ode45];
+
+total_cpu_times = [cpu_times_ode45, cpu_times_euler, cpu_times_rk4];
+total_error_times = [error_times_ode45, error_times_euler, error_times_rk4];
+names_cpu_times = {'ode45' , 'euler dt=0.001', 'euler dt=0.1', 'euler dt=1','rk4 dt=0.001', 'rk4 dt=0.1', 'rk4 dt=1'};
+
+subplot(1, 3, 1);
+bar(names_cpu_times, total_cpu_times);
+title('CPU Time vs. Solver')
+ylabel('CPU Time [s]')
+xlabel('Solver')
+
+subplot(1, 3, 2);
+bar(names_cpu_times, total_error_times);
+title('Error vs. Solver')
+ylabel('Error [rad/s]')
+xlabel('Solver')
+
+subplot(1, 3, 3);
+plot(total_cpu_times, total_error_times, "Marker","x");
+title('Error vs. CPU Times')
+ylabel('Error [rad/s]')
+xlabel('Time [s]')
+
+
 
 % Save workspace variables
 save('InertiaRotationalDamperSimulationData.mat', 'data_euler', 'data_rk4', 'data_ode45');
