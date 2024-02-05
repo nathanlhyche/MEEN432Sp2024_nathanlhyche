@@ -9,5 +9,8 @@ This is used to operate the Project 1 part 1 code
   Within the p1_code.m, you can change the b A w_0 and J1 values to simulate the system with different values.
     This works as these variables are entered into the simulink model as teh variables so they will change whenever the p1_code.m is change and ran.
 
+For part 2
+  Basically, you just load the different codes and run them.  project1.m is for 1.1 and 1.2. project1b.m is for 1.3 and 1.4. We had some difficulty for this part.  For some graphs, all the information doesn't show up. The plots/graphs are correct but the data is weird and can't be inputted.
+
 ## Week 1 Feedback (5/5):
 Great job guys! Keep it up for week 2, ya'll are on track! Only suggestion would be to now look into logic on how you can determine if your applied torque is constant, or sinusoidal. Also make sure to add proper titles to plots (angular velocity vs time), but other than keep it up!
