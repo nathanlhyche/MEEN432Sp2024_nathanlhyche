@@ -122,7 +122,7 @@ subplot(1, 3, 3);
 plot(total_cpu_times, total_error_times, "Marker","x");
 title('Error vs. CPU Times')
 ylabel('Error [rad/s]')
-xlabel('Time [s]')
+xlabel('CPU Time [s]')
 
 
 
