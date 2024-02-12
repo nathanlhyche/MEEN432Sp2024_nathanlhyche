@@ -1,1 +1,20 @@
-read me
+THIS IS ALSO FOUND IN THE MAIN READ ME FILE IN THE PROJECT 1 FOLDER
+FOR PART 3 ### READ ME
+  last week we didn't really complete the 256 simulations part of the project.  so we tried to fix that.  we managed to create 
+Part2_256_Mostly_Complete.m.  this code file runs through all the 32 initial conditions for for 8 different times depending on 
+the solver and/or the time step.  this also plots the cpu time v time for all the simulations.  it doesnt do the error graphs 
+as we focused on the part 3 stuff. and we also had the error part pretty complete with our other part 2 code.  
+
+  for the part 3 stuff, the code portions were pretty straightforward. ( this can be found in the part 3 folder ).  
+the code is to run the different simulink models while inputting different initial conditions.  This part of pretty much good.  
+There was some issues about the shaft speed graphs. the code can be found in the combined_options_code.m or the option1_code.m 2,
+3 etc. basically the code as individual for loop sections that interate through the relevant variables for each option and 
+solver type.  you basically just need to the run the code and have option1.slm 2, 3 etc in the folders for the sim() command 
+to work.  also the cput time graph is created for all simualtions. the cpu time is found using tic tac feature in matlab.
+  Honestly, the hardest part of this was the creation of the simulink models.  the professor really didnt go over this stuff 
+and its has been a while since meen 364.  lecture 3b was helpful but we still had trouble.  also, we did get confused for some
+parts.  for instance, the old part 1 simulinke model has an initial condition of w_0 we didnt know what to do with this. like 
+are we supposed to have a new condition idk. so we had a rough time on that.  Also we created extra code and found in 
+project1_WIP which does simulate the system we just didnt know if it is what you were looking for as it didnt use simulink 
+models. instead it used inertia functions etc. So these code files could be correct as well. they do provide what looks 
+to be more accurate shaft speed v time graphs than the combined code so idk. 
