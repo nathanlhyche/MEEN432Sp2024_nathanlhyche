@@ -7,7 +7,6 @@ J2 = 1; b2 = 1;
 A_constant_torque_S1 = [1, 100];
 A_constant_torque_S2 = [1, 100];
 
-
 % Define angular frequency
 w_frequency = 0.1;
 
@@ -31,7 +30,7 @@ for x = 1:length(A_constant_torque_S1)
             for z = 1:length(dT) %loops through the dT array for its length ie three times in this case
                 step_iteration = dT(z);
                 disp(['Solver = ', num2str(solver_iteration), ', dT = ', num2str(step_iteration, '%-4.1f'),', A_S1 = ', num2str(torque_iteration), ', k = ', num2str(stiffness)]);
-                
+
 
                 simulation_start_time1 = tic;
                 simout = sim("option1", "Solver", solver_iteration, "FixedStep", string(step_iteration)); %this is where the solver happens based on z and i
@@ -44,23 +43,23 @@ for x = 1:length(A_constant_torque_S1)
                 %disp(['Simulation time: ', num2str(simulation_end_time1), ' seconds']);
 
                 simulation_times_option1 = [simulation_times_option1, simulation_end_time1];
-                
+
             end
         end   
     end
 end
 
-% Squeeze wdot to remove singleton dimensions
-wdot_squeezed = squeeze(wdot);
-
+% % Squeeze wdot to remove singleton dimensions
+% wdot_squeezed = squeeze(wdot);
 % 
-wdot_slice = wdot_squeezed(2,:,1);  % Choose the first slice
+% % 
+% wdot_slice = wdot_squeezed(2,:,1);  % Choose the first slice
 
 % Plot
 figure;
 hold on
 subplot(2, 1, 1)
-plot(T, wdot_slice);
+plot(T, wdot);
 title('Option 1: Last Inputted Conditions ode4');
 xlabel('Time [s]');
 ylabel('Angular Velocity [rad/s]');
@@ -69,11 +68,11 @@ for x = 1:length(A_constant_torque_S2)
     torque_iteration2 = A_constant_torque_S2(x);
     solver = "ode45";
     solver_interation2 = solver(1);
-    
+
     for k = 1:length(k_values)
         stiffness = k_values(k);
         disp(['Solver = ', num2str(solver),', A_S2 = ', num2str(torque_iteration2),', k = ', num2str(stiffness)]);
-        
+
         simulation_start_time1 = tic;
         simout = sim("option1", "Solver", solver_interation2);
         w = simout.w.Data;
@@ -87,14 +86,14 @@ for x = 1:length(A_constant_torque_S2)
 end
 
 % Squeeze wdot to remove singleton dimensions
-wdot_squeezed = squeeze(wdot);
-
+% wdot_squeezed = squeeze(wdot);
 % 
-wdot_slice = wdot_squeezed(2,:,1);  % Choose the first slice
+% % 
+% wdot_slice = wdot_squeezed(2,:,1);  % Choose the first slice
 
 % Plot
 subplot(2, 1, 2)
-plot(T, wdot_slice);
+plot(T, wdot);
 title('Option 1: Last Inputted Conditions ode45');
 xlabel('Time [s]');
 ylabel('Angular Velocity [rad/s]');
@@ -143,17 +142,17 @@ for x = 1:length(A_constant_torque_S1)
     end
 end
 
-% Squeeze wdot to remove singleton dimensions
-wdot_squeezed = squeeze(wdot);
-
+% % Squeeze wdot to remove singleton dimensions
+% wdot_squeezed = squeeze(wdot);
 % 
-wdot_slice = wdot_squeezed(2,:,1);  % Choose the first slice
+% % 
+% wdot_slice = wdot_squeezed(2,:,1);  % Choose the first slice
 
 % Plot
 figure;
 hold on
 subplot(2, 1, 1)
-plot(T, wdot_slice);
+plot(T, wdot);
 title('Option 2: Last Inputted Conditions ode4');
 xlabel('Time [s]');
 ylabel('Angular Velocity [rad/s]');
@@ -175,15 +174,15 @@ for x = 1:length(A_constant_torque_S2)
     simulation_times_option2 = [simulation_times_option2, simulation_end_time2];
 end
 
-% Squeeze wdot to remove singleton dimensions
-wdot_squeezed = squeeze(wdot);
-
+% % Squeeze wdot to remove singleton dimensions
+% wdot_squeezed = squeeze(wdot);
 % 
-wdot_slice = wdot_squeezed(2,:,1);  % Choose the first slice
+% % 
+% wdot_slice = wdot_squeezed(2,:,1);  % Choose the first slice
 
 % Plot
 subplot(2, 1, 2)
-plot(T, wdot_slice);
+plot(T, wdot);
 title('Option 2: Last Inputted Conditions ode45');
 xlabel('Time [s]');
 ylabel('Angular Velocity [rad/s]');
@@ -231,17 +230,17 @@ for x = 1:length(A_constant_torque_S1)
     end
 end
 
-% Squeeze wdot to remove singleton dimensions
-wdot_squeezed = squeeze(wdot);
-
+% % Squeeze wdot to remove singleton dimensions
+% wdot_squeezed = squeeze(wdot);
 % 
-wdot_slice = wdot_squeezed(2,:,1);  % Choose the first slice
+% % 
+% wdot_slice = wdot_squeezed(2,:,1);  % Choose the first slice
 
 % Plot
 figure;
 hold on
 subplot(2, 1, 1)
-plot(T, wdot_slice);
+plot(T, wdot);
 title('Option 3: Last Inputted Conditions ode4');
 xlabel('Time [s]');
 ylabel('Angular Velocity [rad/s]');
@@ -263,15 +262,15 @@ for x = 1:length(A_constant_torque_S2)
     simulation_times_option3 = [simulation_times_option3, simulation_end_time3];
 end
 
-% Squeeze wdot to remove singleton dimensions
-wdot_squeezed = squeeze(wdot);
-
+% % Squeeze wdot to remove singleton dimensions
+% wdot_squeezed = squeeze(wdot);
 % 
-wdot_slice = wdot_squeezed(2,:,1);  % Choose the first slice
+% % 
+% wdot_slice = wdot_squeezed(2,:,1);  % Choose the first slice
 
 % Plot
 subplot(2, 1, 2)
-plot(T, wdot_slice);
+plot(T, wdot);
 title('Option 3: Last Inputted Conditions ode45');
 xlabel('Time [s]');
 ylabel('Angular Velocity [rad/s]');
@@ -281,21 +280,21 @@ hold off
 figure;
 subplot(3, 1, 1)
 plot(simulation_times_option1, 'o-');
-
+ylim([0, 0.75])
 xlabel('Iteration');
 ylabel('Time [s]');
 title('CPU Times vs. Time for Option 1');
 
 subplot(3, 1, 2)
 plot(simulation_times_option2, 'o-');
-
+ylim([0, 0.75])
 xlabel('Iteration');
 ylabel('Time [s]');
 title('CPU Times vs. Time for Option 2');
 
 subplot(3, 1, 3)
 plot(simulation_times_option3, 'o-');
-
+ylim([0, 0.75])
 xlabel('Iteration');
 ylabel('Time [s]');
 title('CPU Times vs. Time for Option 3');
