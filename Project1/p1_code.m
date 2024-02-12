@@ -40,3 +40,4 @@ for i = 1:length(solver) %loops through the solver array for its length ie twice
 
     end
 end
+
