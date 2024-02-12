@@ -4,6 +4,7 @@
 initial_angular_velocity = 10.0;  % Initial angular velocity
 initial_input_torque = 0.0;       % Initial input torque
 
+
 % Set system parameters
 J1 = 100;          % Rotational inertia
 b = 10;            % Damping coefficient
