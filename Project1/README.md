@@ -9,8 +9,15 @@ This is used to operate the Project 1 part 1 code
   Within the p1_code.m, you can change the b A w_0 and J1 values to simulate the system with different values.
     This works as these variables are entered into the simulink model as teh variables so they will change whenever the p1_code.m is change and ran.
 
+
 For part 2
   Basically, you just load the different codes and run them.  project1.m is for 1.1 and 1.2. project1b.m is for 1.3 and 1.4. We had some difficulty for this part.  For some graphs, all the information doesn't show up. The plots/graphs are correct but the data is weird and can't be inputted.
+
+FOR PART 3 ### READ ME
+  last week we didn't really complete the 256 simulations part of the project.  so we tried to fix that.  we managed to create Part2_256_Mostly_Complete.m.  this code file runs through all the 32 initial conditions for for 8 different times depending on the solver and/or the time step.  this also plots the cpu time v time for all the simulations.  it doesnt do the error graphs as we focused on the part 3 stuff. and we also had the error part pretty complete with our other part 2 code.  
+
+  for the part 3 stuff, the code portions were pretty straight forward. ( this can be found in the part 3 folder ).  the code is to run the different simulink models while inputting different initial conditions.  This part of pretty much good.  There was some issues about the shaft speed graphs. the code can be found in the combined_options_code.m or the option1_code.m 2, 3 etc. basically the code as individual for loop sections that interate through the relevant variables for each option and solver type.  you basically just need to the run the code and have option1.slm 2, 3 etc in the folders for the sim() command to work.  also the cput time graph is created for all simualtions. the cpu time is found using tic tac feature in matlab.
+  Honestly, the hardest part of this was the creation of the simulink models.  the professor really didnt go over this stuff and its has been a while since meen 364.  lecture 3b was helpful but we still had trouble.  also, we did get confused for some parts.  for instance, the old part 1 simulinke model has an initial condition of w_0 we didnt know what to do with this. like are we supposed to have a new condition idk. so we had a rough time on that.  Also we created extra code and found in project1_WIP which does simulate the system we just didnt know if it is what you were looking for as it didnt use simulink models. instead it used inertia functions etc. So these code files could be correct as well. they do provide what looks to be more accurate shaft speed v time graphs than the combined code so idk. 
 
 ## Week 1 Feedback (5/5):
 Great job guys! Keep it up for week 2, ya'll are on track! Only suggestion would be to now look into logic on how you can determine if your applied torque is constant, or sinusoidal. Also make sure to add proper titles to plots (angular velocity vs time), but other than keep it up!
