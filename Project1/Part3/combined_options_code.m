@@ -7,6 +7,7 @@ J2 = 1; b2 = 1;
 A_constant_torque_S1 = [1, 100];
 A_constant_torque_S2 = [1, 100];
 
+
 % Define angular frequency
 w_frequency = 0.1;
 
