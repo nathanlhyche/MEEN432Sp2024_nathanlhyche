@@ -5,6 +5,7 @@ b_array = [10, 0.1];
 w_array = [0.1, 100];
 A_array = [0.0, 100, sin(w_array(1)), sin(w_array(2))];
 
+
 dT_array = [0.001, 0.1, 1]; % array of the time steps needed to be used
 solver_array = ["ode1", "ode4"]; % Euler and Runge-Kutta identifiers array
 solver_name_array = ["Euler", "Runge-Kutta"]; % array of solver names
