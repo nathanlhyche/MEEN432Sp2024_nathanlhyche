@@ -80,6 +80,7 @@ sgtitle('Inertia-Rotational Damper System Simulation');
 % Save workspace variables
 save('InertiaRotationalDamperSimulation.mat');
 
+
 % Inertia Function
 function angular_velocity = inertia(input_torque, inertia_constant, dt, angular_velocity_inertia)
     angular_acceleration = input_torque / inertia_constant;
