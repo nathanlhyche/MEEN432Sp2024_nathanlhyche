@@ -24,3 +24,15 @@ Great job guys! Keep it up for week 2, ya'll are on track! Only suggestion would
 
 ## Week 2 Feedback (5/5)
 Firstly I would say that while user input is fine for the project, you need to think of what exactly the user is able to change. The goal is to be able to have 256 simulations since we want to try different combinations of each of the system parameters and by making the user change this everytime, it can get very long. A suggestion would be to have these parameters as arrays when setting the system parameters and then including for loops within your script that is able to go through each value of the arrays while still capturing the information needed for the plots (this can be done either within the same script or a separate one) Regarding the plots produced in project1.m, you do not need to plot the rotational velocity or torque for the project 1 final submission. This was only a week 1 request due to how simple the model was at that point. The plots for project1b.m also look good but you only need to use the fixed time step solver simulations for the Error vs Time step and the CPU vs Time step plots. Please try to work through these changes for Part 1! Moving onto Part 2 of the project, the team will need to create different simulink models for the 3 options on how to connect System 2 to System 1. A suggestion would be to copt the model used for Part 1 and modifying it for each of the options. Once the entire project is complete make sure the commit all Part 1 and Part 2 files with the commit message " Project 1 Final"
+
+## Final Week Feedback
+Firstly, please utilize the README file for clear instruction on how to run the code that is apart of your commit for the week. There many files that were mentioned for the final completion but I was not given specific instructions on the order your team wanted these files to be ran so please make sure to do that in the future.
+- Part 1:
+1) The simulink model does not contain any logic for checking if applied torque is constant or sinusoidal.
+2) Running Part2_256_Mostly_Complete, there were issues in the integrator block of the Simulink model. Within the Project 1 Week 2 document I created, there are instructions for a bandaid fix.
+- Part 2 Option 1:
+1) The EOM of S1 should include the spring torque and it does not (should be getting subtracted from the equation if positive from the spring function).
+2) theta1 and theta2 (and K) should be the inputs to the spring equation, where theta1 and theta2 come from integrating w1 and w2.
+3) The torque coming from the spring equation should not be integrated and it should be passed to both S1 and S2.4) The spring torque should be the only positive torque coming into S2, it should not be given the applied torque S1 is experiencing.
+- Part 2 Option 2:
+1) This should just be the combined EOM of S1 and S2. I am unsure of what is currently going on in option 2.
