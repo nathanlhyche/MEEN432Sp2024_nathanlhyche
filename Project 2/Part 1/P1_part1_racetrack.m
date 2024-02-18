@@ -68,6 +68,8 @@ theta1_change = [theta1_change, theta1_change(index1) + delta_theta];
 index2 = length(theta2_change);
 theta2_change = theta2_change(1:end-1);
 theta2_change = [theta2_change, theta2_change(index2 - 1) + delta_theta];
+degrees1_change = rad2deg(theta1_change);
+degrees2_change = rad2deg(theta2_change);
 
 % Plot
 figure;
