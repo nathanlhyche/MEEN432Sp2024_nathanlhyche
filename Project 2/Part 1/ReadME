@@ -1,1 +1,9 @@
 ReadME Part 1
+
+1) The first part of part 1 is the P1_part1_racetrack.  It is used to simulate the racetrack coordinates.  the four 
+if statements follow the length traveled variable.  ie the first if statement is for distance traveled under 900m and
+then after that it is 900 - 1528m and so on for all the other sections.  the way point arrays are used to plot the racetrack 
+locations based on the amount of waypoints used. there is also a theta array that has the individual values of the angle
+based on its change.
+
+2) 
