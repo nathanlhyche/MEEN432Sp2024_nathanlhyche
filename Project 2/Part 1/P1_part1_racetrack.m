@@ -30,7 +30,7 @@ for i = 1:(waypoints * 2)
         x_waypoints(i) = distance_traveled;
         y_waypoints(i) = 0;
         distance_traveled = distance_traveled + d_s_straight;
-        disp(['s=', num2str(distance_traveled), ' ds=', num2str(d_s_straight), ' str1'])
+        disp(['dist=', num2str(distance_traveled), ' ds=', num2str(d_s_straight), ' str1'])
     elseif distance_traveled < straight_length + circum - 1
         % First curved
         x_waypoints(i) = straight_length + radius * sin(theta);
@@ -38,13 +38,13 @@ for i = 1:(waypoints * 2)
         theta1_change = ([theta1_change, theta]);
         theta = theta + delta_theta; % Update angle
         distance_traveled = distance_traveled + d_s_curve;
-        disp(['s=', num2str(distance_traveled), ' ds=', num2str(d_s_curve), ' curve1*******'])
+        disp(['dist=', num2str(distance_traveled), ' ds=', num2str(d_s_curve), ' curve1*******'])
     elseif distance_traveled < 2 * straight_length + circum - 1
         % Second straight
         x_waypoints(i) = straight_length - (distance_traveled - (straight_length + circum));
         y_waypoints(i) = 2 * radius;
         distance_traveled = distance_traveled + d_s_straight;
-        disp(['s=', num2str(distance_traveled), ' ds=', num2str(d_s_straight), ' str2------------------'])
+        disp(['dist=', num2str(distance_traveled), ' ds=', num2str(d_s_straight), ' str2------------------'])
     elseif distance_traveled < 2 * straight_length + 2 * circum
         % Second curved
         x_waypoints(i) = radius * sin(theta);
@@ -52,7 +52,7 @@ for i = 1:(waypoints * 2)
         theta2_change = ([theta1_change, theta]);
         theta = theta + delta_theta; % Update angle
         distance_traveled = distance_traveled + d_s_curve;
-        disp(['s=', num2str(distance_traveled), ' ds=', num2str(d_s_curve), ' curve2/////////////'])
+        disp(['dist=', num2str(distance_traveled), ' ds=', num2str(d_s_curve), ' curve2/////////////'])
     end
 end
 
@@ -78,4 +78,4 @@ xlim([-300, 1200]);
 ylim([-100, 500]);
 xlabel('X [m]');
 ylabel('Y [m]');
-title('Track Path');
+title('Race Track');
