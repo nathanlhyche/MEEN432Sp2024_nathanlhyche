@@ -2,7 +2,8 @@ radius = 200; % Radius
 straight_length = 900; % Length
 width = 15; % Width
 
-waypoints = 200;
+waypoints = 100;
+%timer = ((0.1*waypoints)/waypoints)
 
 % Circumference of semi circle
 circum = pi * radius; % 628.3185
@@ -73,6 +74,7 @@ degrees2_change = rad2deg(theta2_change); %made into degrees in case needed it
 
 % Plot race track
 figure;
+set(gcf, 'Position', [800, 200, 1500, 900]); % [left, bottom, width, height]
 plot(x_waypoints, y_waypoints, 'k', 'LineWidth', width, 'Color', [0.7 0.7 0.7]); %gray racetrack with width
 hold on; %allows car and line to be plotted after this
 xlim([-300, 1200]); %axis limits
@@ -88,14 +90,12 @@ vehicle_length = 20;
 vehicle_width = 7; 
 scale_factor = 5; 
 
-% sets the starting location of the car at [0,0]
-vehicle_x_coords = x_waypoints(1); 
-vehicle_y_coords = y_waypoints(1);
-vehicle_angle = 0; % Start with zero angle
-
-% indexes
-theta1_index = 1; % Index for theta1_change
-theta2_index = 1; % Index for theta2_change
+vehicle_vertices = [
+    -vehicle_length / 2, -vehicle_width / 2;
+    vehicle_length / 2, -vehicle_width / 2;
+    vehicle_length / 2, vehicle_width / 2;
+    -vehicle_length / 2, vehicle_width / 2;
+];
 
 % Plot initial car box
 vehicle_patch = patch(vehicle_vertices(:,1), vehicle_vertices(:,2), 'b'); % Plot for blue vehicle
@@ -145,4 +145,3 @@ for i = 1:length(x_waypoints)
     % instanteous appearance
     pause(0.01);
 end
-
