@@ -6,4 +6,10 @@ then after that it is 900 - 1528m and so on for all the other sections.  the way
 locations based on the amount of waypoints used. there is also a theta array that has the individual values of the angle
 based on its change.
 
-2) 
+2) The second part of this project uses the code from part 1 and building off of it.  the new code with the old code is 
+found in P1_part1_racetrack_with_moving_car_patch.m.  for the new code all you have to do is run it.  it will create the
+racetrack based on the amount of waypoints needed.  and then create a box car which will move around the track and turn 
+based on the curvature of the semi circles. it will also make a line that shows where the car has traveled.  
+
+Also, the width of the race track is made by adjusting the linewidth in the plot command.  is this right? or should coordinate
+points be made to adjust for the added width so that it can be used later on in the project?
