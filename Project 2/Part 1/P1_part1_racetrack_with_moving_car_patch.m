@@ -74,7 +74,7 @@ degrees2_change = rad2deg(theta2_change); %made into degrees in case needed it
 
 % Plot race track
 figure;
-set(gcf, 'Position', [800, 200, 1500, 900]); % [left, bottom, width, height]
+set(gcf, 'Position', [800, 200, 800, 500]); % [left, bottom, width, height] size set for plot i have big monitor so i set it big
 plot(x_waypoints, y_waypoints, 'k', 'LineWidth', width, 'Color', [0.7 0.7 0.7]); %gray racetrack with width
 hold on; %allows car and line to be plotted after this
 xlim([-300, 1200]); %axis limits
@@ -90,12 +90,7 @@ vehicle_length = 20;
 vehicle_width = 7; 
 scale_factor = 5; 
 
-vehicle_vertices = [
-    -vehicle_length / 2, -vehicle_width / 2;
-    vehicle_length / 2, -vehicle_width / 2;
-    vehicle_length / 2, vehicle_width / 2;
-    -vehicle_length / 2, vehicle_width / 2;
-];
+vehicle_vertices = [-vehicle_length / 2, -vehicle_width / 2; vehicle_length / 2, -vehicle_width / 2; vehicle_length / 2, vehicle_width / 2; -vehicle_length / 2, vehicle_width / 2;];
 
 % Plot initial car box
 vehicle_patch = patch(vehicle_vertices(:,1), vehicle_vertices(:,2), 'b'); % Plot for blue vehicle
