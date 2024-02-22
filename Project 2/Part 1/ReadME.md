@@ -13,3 +13,6 @@ based on the curvature of the semi circles. it will also make a line that shows 
 
 Also, the width of the race track is made by adjusting the linewidth in the plot command.  is this right? or should coordinate
 points be made to adjust for the added width so that it can be used later on in the project?
+
+## Week 1 Feedback (5/5)
+I had to debug a little bit for the vehicle simulation to run. There were some issues with the call of variabales (radius, straight_length, and width). After debugging, the vehicle looked good! For Week 2, start developing a lateral dynamic model of a vehicle that contains subsystems that are listed in the Week 2 document.
