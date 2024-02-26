@@ -14,7 +14,7 @@ coords from the simulink model.  Next, the racestat function is setup but it nee
 1. Your team will select a target speed and determine how fast your
  vehicle model can go around the track.
 
--This is done in the "init.m" file that we added to GitHub.  the velocity of vxd is set to 15m/s
+-This is done in the "init.m" file that we added to GitHub.  the velocity of vxd is set to 8 m/s
 
  2. Create a "Driver Model" subsystem within the Simulink model where
  there will be a lateral control to estimate the steering angle (delta_f) 
