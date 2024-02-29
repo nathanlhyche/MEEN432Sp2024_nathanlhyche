@@ -39,3 +39,6 @@ points that we can use to animate the car on the racetrack figure.
  model subsystem 
 
 -X and Y are fed back into the driver model and used to determine delta_f
+
+## Week 2 Feedback (5/5)
+Good Job Team 26! For the final submission, continue to work through the Simulink model and tweaking it so that you are able to stay on track and go around the track as fast as possible. The team will need to utilize the raceStat function somewhere in the MATLAB script to see how many loops the vehicle is able to do and to see information regarding the vehicle leaving the track.
