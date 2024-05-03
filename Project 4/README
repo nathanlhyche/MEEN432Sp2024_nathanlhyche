@@ -1,1 +1,17 @@
+To run the project:
+Download "432_Project4_Final.zip" 
+Right click the zip folder and select 'Extract all'
+Open File named "P4_runsim.m" 
+Run the file to see project results
 
+
+Importiant mentions:
+To view if the car left the track, click on 'race' in the workspace window to the right, and click the 1x1 struct next to 'leftTrack'
+The car should not show any instances of leaving the track
+The car should complete 21 laps - indicated in the racestat output window
+The car should have a max SoC of 0.800 and a ending/ minimum SoC of 0.1354 - indicated in the racestat output window
+
+
+Please reach out if you encounter any issues when trying to run the project
+I have enjoyed the class very much and it was a pleasure to work with you :D!!!!
+Thank you so much for a good semester!!
